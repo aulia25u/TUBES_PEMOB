@@ -20,6 +20,8 @@ import Tournament from './src/page/Tournament';
 import Profileupdate from './src/page/Profileupdate';
 import Profilepassword from './src/page/Profilepassword';
 import Categoryvalorant from './src/page/Categoryvalorant';
+import Categorydetails from './src/page/Categorydetails';
+import Tournamentdetails from './src/page/Tournamentdetails';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -245,6 +247,30 @@ export default function App() {
           name="Categoryvalorant"
           component={Categoryvalorant}
           options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Categorydetails"
+          component={Categorydetails}
+          options={{
+            headerTitle: 'Teams Details',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Tournamentdetails"
+          component={Tournamentdetails}
+          options={{
+            headerTitle: 'Tournament Details',
+            headerTintColor: '#fff',
             headerShown: true,
             headerStyle: {
               backgroundColor: '#AD62FB',

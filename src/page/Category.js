@@ -1,6 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {Searchbar, List} from 'react-native-paper';
+import {Row, Col} from 'react-native-responsive-grid-system';
 
 const Category = ({navigation}) => {
   //Search
@@ -38,31 +39,63 @@ const Category = ({navigation}) => {
       <View style={{marginHorizontal: 25, marginTop: 20}}>
         {/* FPS */}
         <List.Section>
-          <List.Accordion title="First Person Shooter - FPS">
-            <List.Item
-              left={props => <List.Icon {...props} icon="folder" />}
-              title="Valorant"
-              onPress={() => navigation.navigate('Categoryvalorant')}
-            />
-            <List.Item
-              left={props => <List.Icon {...props} icon="folder" />}
-              title="CSGO"
-            />
+          <List.Accordion
+            titleStyle={{color: '#302D33'}}
+            style={{backgroundColor: '#EFE0FE'}}
+            title="First Person Shooter - FPS">
+            <View style={{backgroundColor: '#EFE0FE', width: '100%'}}>
+              <Row>
+                <Col sm={3} md={3} lg={3} xs={3}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate('Categoryvalorant');
+                    }}>
+                    <View style={{margin: 10, alignItems: 'center'}}>
+                      <Image
+                        style={{width: 50, height: 50}}
+                        resizeMode="contain"
+                        source={require('../assets/Game/valorant.png')}
+                      />
+                      <Text
+                        style={{
+                          fontSize: 15,
+                          fontWeight: '400',
+                          fontFamily: 'kanit',
+                          color: '#000000',
+                        }}>
+                        Valorant
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </Col>
+                <Col sm={3} md={3} lg={3} xs={3}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate('Categoryvalorant');
+                    }}>
+                    <View style={{margin: 10, alignItems: 'center'}}>
+                      <Image
+                        style={{width: 50, height: 50}}
+                        resizeMode="contain"
+                        source={require('../assets/Game/CSGO.png')}
+                      />
+                      <Text
+                        style={{
+                          fontSize: 15,
+                          fontWeight: '400',
+                          fontFamily: 'kanit',
+                          color: '#000000',
+                        }}>
+                        CSGO
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </Col>
+              </Row>
+            </View>
           </List.Accordion>
         </List.Section>
-        {/* MOBA */}
-        <List.Section>
-          <List.Accordion title="Multiplayer Online Battle Arena - MOBA">
-            <List.Item
-              left={props => <List.Icon {...props} icon="folder" />}
-              title="Dota 2"
-            />
-            <List.Item
-              left={props => <List.Icon {...props} icon="folder" />}
-              title="Mobile Legends"
-            />
-          </List.Accordion>
-        </List.Section>
+        <View style={{height: 1, backgroundColor: '#EFE0FE', marginTop: 10}} />
       </View>
     </View>
   );
