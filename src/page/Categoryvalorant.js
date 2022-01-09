@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {Row, Col} from 'react-native-responsive-grid-system';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Row, Col } from 'react-native-responsive-grid-system';
 
-const Categoryvalorant = ({navigation}) => {
+const Categoryvalorant = ({ navigation }) => {
   return (
-    <View style={{flex: 1, backgroundColor: '#AD62FB'}}>
-      <View style={{flexDirection: 'row', marginTop: 30, marginHorizontal: 25}}>
+    <View style={{ flex: 1, backgroundColor: '#AD62FB' }}>
+      <View style={{ flexDirection: 'row', marginTop: 30, marginHorizontal: 25 }}>
         <Image source={require('../assets/Icons/valorant.png')} />
         <Text
           style={{
@@ -35,7 +35,7 @@ const Categoryvalorant = ({navigation}) => {
               onPress={() => {
                 navigation.navigate('Categorydetails');
               }}
-              style={{alignSelf: 'center', alignItems: 'center'}}>
+              style={{ alignSelf: 'center', alignItems: 'center' }}>
               <Image source={require('../assets/Logo/sentinels.png')} />
               <Text
                 style={{
@@ -53,7 +53,7 @@ const Categoryvalorant = ({navigation}) => {
               onPress={() => {
                 navigation.navigate('Categorydetails');
               }}
-              style={{alignSelf: 'center', alignItems: 'center'}}>
+              style={{ alignSelf: 'center', alignItems: 'center' }}>
               <Image source={require('../assets/Logo/fullsense.png')} />
               <Text
                 style={{
@@ -71,7 +71,7 @@ const Categoryvalorant = ({navigation}) => {
               onPress={() => {
                 navigation.navigate('Categorydetails');
               }}
-              style={{alignSelf: 'center', alignItems: 'center'}}>
+              style={{ alignSelf: 'center', alignItems: 'center' }}>
               <Image source={require('../assets/Logo/kru.png')} />
               <Text
                 style={{

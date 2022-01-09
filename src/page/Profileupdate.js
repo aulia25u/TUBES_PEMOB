@@ -1,16 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {TextInput} from 'react-native-paper';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
-const Profileupdate = ({navigation}) => {
+const Profileupdate = ({ navigation }) => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [number, setNumber] = React.useState('');
   return (
-    <View style={{flex: 1, backgroundColor: '#AD62FB'}}>
-      <View style={{marginTop: 30, paddingHorizontal: 37, marginTop: 90}}>
+    <View style={{ flex: 1, backgroundColor: '#AD62FB' }}>
+      <View style={{ marginTop: 30, paddingHorizontal: 37, marginTop: 90 }}>
         <TextInput
-          style={{backgroundColor: '#AD62FB', marginVertical: 10}}
+          style={{ backgroundColor: '#AD62FB', marginVertical: 10 }}
           mode="outlined"
           activeOutlineColor="#ffffff"
           outlineColor="#ffffff"
@@ -19,7 +19,7 @@ const Profileupdate = ({navigation}) => {
           onChangeText={name => setName(name)}
         />
         <TextInput
-          style={{backgroundColor: '#AD62FB', marginVertical: 10}}
+          style={{ backgroundColor: '#AD62FB', marginVertical: 10 }}
           mode="outlined"
           activeOutlineColor="#ffffff"
           outlineColor="#ffffff"
@@ -28,7 +28,7 @@ const Profileupdate = ({navigation}) => {
           onChangeText={email => setEmail(email)}
         />
         <TextInput
-          style={{backgroundColor: '#AD62FB', marginVertical: 10}}
+          style={{ backgroundColor: '#AD62FB', marginVertical: 10 }}
           mode="outlined"
           activeOutlineColor="#ffffff"
           outlineColor="#ffffff"
@@ -37,7 +37,7 @@ const Profileupdate = ({navigation}) => {
           onChangeText={number => setNumber(number)}
         />
       </View>
-      <View style={{paddingHorizontal: 40, marginTop: 200}}>
+      <View style={{ paddingHorizontal: 40, marginTop: 200 }}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Profile')}
           style={{
