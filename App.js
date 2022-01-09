@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CategoryIcons from './src/assets/Icons/category.svg';
 import ProfileIcons from './src/assets/Icons/profile.svg';
 import ExploreIcons from './src/assets/Icons/explore.svg';
@@ -22,13 +22,14 @@ import Profilepassword from './src/page/Profilepassword';
 import Categoryvalorant from './src/page/Categoryvalorant';
 import Categorydetails from './src/page/Categorydetails';
 import Tournamentdetails from './src/page/Tournamentdetails';
+import Detailsmatch from './src/page/Detailsmatch';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function BottomNav() {
   return (
-    <Tab.Navigator screenOptions={{tabBarStyle: {backgroundColor: '#231432'}}}>
+    <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: '#231432' } }}>
       <Tab.Screen
         name="Explore"
         component={Explore}
@@ -41,14 +42,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                        backgroundColor: '#fff',
-                        flex: 1,
-                        paddingHorizontal: 30,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                      }
-                    : {backgroundColor: '#231432'}
+                      backgroundColor: '#fff',
+                      flex: 1,
+                      paddingHorizontal: 30,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 8,
+                    }
+                    : { backgroundColor: '#231432' }
                 }>
                 <ExploreIcons
                   width={30}
@@ -72,14 +73,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                        backgroundColor: '#fff',
-                        flex: 1,
-                        paddingHorizontal: 30,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                      }
-                    : {backgroundColor: '#231432'}
+                      backgroundColor: '#fff',
+                      flex: 1,
+                      paddingHorizontal: 30,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 8,
+                    }
+                    : { backgroundColor: '#231432' }
                 }>
                 <ScheduleIcons
                   width={30}
@@ -103,14 +104,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                        backgroundColor: '#fff',
-                        flex: 1,
-                        paddingHorizontal: 30,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                      }
-                    : {backgroundColor: '#231432'}
+                      backgroundColor: '#fff',
+                      flex: 1,
+                      paddingHorizontal: 30,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 8,
+                    }
+                    : { backgroundColor: '#231432' }
                 }>
                 <CategoryIcons
                   width={30}
@@ -134,14 +135,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                        backgroundColor: '#fff',
-                        flex: 1,
-                        paddingHorizontal: 30,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                      }
-                    : {backgroundColor: '#231432'}
+                      backgroundColor: '#fff',
+                      flex: 1,
+                      paddingHorizontal: 30,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 8,
+                    }
+                    : { backgroundColor: '#231432' }
                 }>
                 <TournamentIcons
                   width={30}
@@ -165,14 +166,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                        backgroundColor: '#fff',
-                        flex: 1,
-                        paddingHorizontal: 30,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 8,
-                      }
-                    : {backgroundColor: '#231432'}
+                      backgroundColor: '#fff',
+                      flex: 1,
+                      paddingHorizontal: 30,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: 8,
+                    }
+                    : { backgroundColor: '#231432' }
                 }>
                 <ProfileIcons
                   width={30}
@@ -280,7 +281,17 @@ export default function App() {
         <Stack.Screen
           name="Tab"
           component={BottomNav}
-          options={{headerTintColor: 'white', headerShown: false}}
+          options={{ headerTintColor: 'white', headerShown: false }}
+        />
+        <Stack.Screen
+          name="Detailsmatch"
+          component={Detailsmatch}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

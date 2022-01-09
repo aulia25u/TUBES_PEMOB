@@ -1,9 +1,64 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Searchbar, List } from 'react-native-paper';
+import Explorer from '../components/Explorer';
+import { Row, Col } from 'react-native-responsive-grid-system';
 const Explore = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const onChangeSearch = query => setSearchQuery(query);
   return (
-    <View style={{ flex: 1, backgroundColor: '#AD62FB' }}></View>
+    <ScrollView style={{ backgroundColor: '#AD62FB' }}>
+      <View>
+        <Searchbar
+          style={{
+            backgroundColor: '#AD62FB',
+            borderBottomWidth: 1,
+            borderColor: '#ffffff',
+          }}
+          iconColor="#ffffff"
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
+      <View style={{ width: '100%' }}>
+        <Image style={{ width: '100%', resizeMode: 'cover' }} source={require('../assets/Image/high.png')} />
+        <View style={{ zIndex: 100, position: 'relative', top: -70 }}>
+          <Text style={{ color: 'white', fontSize: 14 }}>
+            November, 27 2021
+          </Text>
+          <Text style={{ color: 'white', fontSize: 18 }}>
+            CHAMPIONS ITEMS AND DROPS ARE COMING!
+          </Text>
+          <TouchableOpacity>
+            <Text style={{ color: '#AD62FB', fontSize: 14, fontWeight: '400', fontFamily: 'kanit' }}>READ MORE</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <Row>
+        <Col sm={6} md={6} lg={6} xs={6}>
+          <View style={{ padding: 10 }}>
+            <Explorer onPress={() => { /*navigation.navigate('')*/ }} date='November, 26 2021' title='DIE FOR YOU - CHAMPIONS MUSIC VIDEO' image={require('../assets/Image/news1.png')} />
+          </View>
+        </Col>
+        <Col sm={6} md={6} lg={6} xs={6}>
+          <View style={{ padding: 10 }}>
+            <Explorer onPress={() => { /*navigation.navigate('')*/ }} date='November, 26 2021' title='NA LAST CHANCE QUALIFIER -- STARTS OCTOBER 12' image={require('../assets/Image/news2.png')} />
+          </View>
+        </Col>
+        <Col sm={6} md={6} lg={6} xs={6}>
+          <View style={{ padding: 10 }}>
+            <Explorer onPress={() => { /*navigation.navigate('')*/ }} date='November, 26 2021' title='VALORANT CHAMPIONS: EVERYTHING YOU  - ' image={require('../assets/Image/news3.png')} />
+          </View>
+        </Col>
+        <Col sm={6} md={6} lg={6} xs={6}>
+          <View style={{ padding: 10 }}>
+            <Explorer onPress={() => { /*navigation.navigate('')*/ }} date='November, 26 2021' title='DIE FOR YOU - CHAMPIONS MUSIC VIDEO' image={require('../assets/Image/news1.png')} />
+          </View>
+        </Col>
+      </Row>
+
+    </ScrollView>
   );
 };
 
