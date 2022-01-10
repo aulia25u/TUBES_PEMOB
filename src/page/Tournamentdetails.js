@@ -203,7 +203,7 @@ const Tournamentdetails = ({navigation}) => {
             fontFamily: 'kanit',
             color: '#fff',
           }}>
-          Price Pool
+          Group Stage
         </Text>
         <Table>
           <Row
