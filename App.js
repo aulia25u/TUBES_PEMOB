@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CategoryIcons from './src/assets/Icons/category.svg';
 import ProfileIcons from './src/assets/Icons/profile.svg';
 import ExploreIcons from './src/assets/Icons/explore.svg';
@@ -23,13 +23,14 @@ import Categoryvalorant from './src/page/Categoryvalorant';
 import Categorydetails from './src/page/Categorydetails';
 import Tournamentdetails from './src/page/Tournamentdetails';
 import Detailsmatch from './src/page/Detailsmatch';
+import Exploredetails from './src/page/Exploredetails';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function BottomNav() {
   return (
-    <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: '#231432' } }}>
+    <Tab.Navigator screenOptions={{tabBarStyle: {backgroundColor: '#231432'}}}>
       <Tab.Screen
         name="Explore"
         component={Explore}
@@ -42,14 +43,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                      backgroundColor: '#fff',
-                      flex: 1,
-                      paddingHorizontal: 30,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 8,
-                    }
-                    : { backgroundColor: '#231432' }
+                        backgroundColor: '#fff',
+                        flex: 1,
+                        paddingHorizontal: 30,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                      }
+                    : {backgroundColor: '#231432'}
                 }>
                 <ExploreIcons
                   width={30}
@@ -73,14 +74,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                      backgroundColor: '#fff',
-                      flex: 1,
-                      paddingHorizontal: 30,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 8,
-                    }
-                    : { backgroundColor: '#231432' }
+                        backgroundColor: '#fff',
+                        flex: 1,
+                        paddingHorizontal: 30,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                      }
+                    : {backgroundColor: '#231432'}
                 }>
                 <ScheduleIcons
                   width={30}
@@ -104,14 +105,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                      backgroundColor: '#fff',
-                      flex: 1,
-                      paddingHorizontal: 30,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 8,
-                    }
-                    : { backgroundColor: '#231432' }
+                        backgroundColor: '#fff',
+                        flex: 1,
+                        paddingHorizontal: 30,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                      }
+                    : {backgroundColor: '#231432'}
                 }>
                 <CategoryIcons
                   width={30}
@@ -135,14 +136,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                      backgroundColor: '#fff',
-                      flex: 1,
-                      paddingHorizontal: 30,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 8,
-                    }
-                    : { backgroundColor: '#231432' }
+                        backgroundColor: '#fff',
+                        flex: 1,
+                        paddingHorizontal: 30,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                      }
+                    : {backgroundColor: '#231432'}
                 }>
                 <TournamentIcons
                   width={30}
@@ -166,14 +167,14 @@ function BottomNav() {
                 style={
                   tabState.focused
                     ? {
-                      backgroundColor: '#fff',
-                      flex: 1,
-                      paddingHorizontal: 30,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: 8,
-                    }
-                    : { backgroundColor: '#231432' }
+                        backgroundColor: '#fff',
+                        flex: 1,
+                        paddingHorizontal: 30,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 8,
+                      }
+                    : {backgroundColor: '#231432'}
                 }>
                 <ProfileIcons
                   width={30}
@@ -228,6 +229,8 @@ export default function App() {
           name="Profileupdate"
           component={Profileupdate}
           options={{
+            headerTitle: 'Update Profile',
+            headerTintColor: '#fff',
             headerShown: true,
             headerStyle: {
               backgroundColor: '#AD62FB',
@@ -238,6 +241,8 @@ export default function App() {
           name="Profilepassword"
           component={Profilepassword}
           options={{
+            headerTitle: 'Change Password',
+            headerTintColor: '#fff',
             headerShown: true,
             headerStyle: {
               backgroundColor: '#AD62FB',
@@ -248,6 +253,8 @@ export default function App() {
           name="Categoryvalorant"
           component={Categoryvalorant}
           options={{
+            headerTitle: 'Teams List',
+            headerTintColor: '#fff',
             headerShown: true,
             headerStyle: {
               backgroundColor: '#AD62FB',
@@ -279,19 +286,33 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="Tab"
-          component={BottomNav}
-          options={{ headerTintColor: 'white', headerShown: false }}
-        />
-        <Stack.Screen
           name="Detailsmatch"
           component={Detailsmatch}
           options={{
+            headerTitle: 'Details Match',
+            headerTintColor: '#fff',
             headerShown: true,
             headerStyle: {
               backgroundColor: '#AD62FB',
             },
           }}
+        />
+        <Stack.Screen
+          name="Exploredetails"
+          component={Exploredetails}
+          options={{
+            headerTitle: 'Read More',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Tab"
+          component={BottomNav}
+          options={{headerTintColor: 'white', headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
