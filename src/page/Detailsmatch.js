@@ -106,11 +106,11 @@ const Detailsmatch = () => {
               fontFamily: 'kanit',
             }}
             data={[
-              ['ShahZam', 'Shahzeb Khan'],
-              ['Sick', 'Hunter Mims'],
-              ['zombs', 'Jared Gitlin'],
-              ['dapr', 'Michael Gulino'],
-              ['TenZ', 'Tyson Ngo'],
+              ['Klaus', 'Nicolas Ferrari'],
+              ['Mazino', 'Roberto Rivas'],
+              ['NagZ', 'Juan Pablo Lopez'],
+              ['delz1k', 'Joaquin Espinoza'],
+              ['keznit', 'Angelo Mori'],
             ]}
           />
         </Table>

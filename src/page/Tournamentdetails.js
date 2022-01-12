@@ -113,11 +113,11 @@ const Tournamentdetails = ({navigation}) => {
               fontFamily: 'kanit',
             }}
             data={[
-              ['1st', '$ 450,000', 'Sentinels'],
-              ['2nd', '$ 250,000', 'Team Liquid'],
-              ['3rd', '$ 175,000', 'Vision Stiker'],
-              ['4th', '$ 75,000', 'FullSense'],
-              ['5th', '$ 50,000', 'Furia'],
+              ['1st', '$ 450,000', 'TBD'],
+              ['2nd', '$ 250,000', 'TBD'],
+              ['3rd', '$ 175,000', 'TBD'],
+              ['4th', '$ 75,000', 'TBD'],
+              ['5th', '$ 50,000', 'TBD'],
             ]}
           />
         </Table>
@@ -162,9 +162,9 @@ const Tournamentdetails = ({navigation}) => {
           <TouchableOpacity
             style={{alignItems: 'center'}}
             onPress={() => {
-              navigation.navigate('Categorydetails');
+              navigation.navigate('Teamfullsense');
             }}>
-            <Image source={require('../assets/Logo/sentinels.png')} />
+            <Image source={require('../assets/Logo/fullsense.png')} />
             <Text
               style={{
                 fontSize: 15,
@@ -172,15 +172,15 @@ const Tournamentdetails = ({navigation}) => {
                 fontFamily: 'kanit',
                 color: '#fff',
               }}>
-              Sentinels
+              FullSense
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{alignItems: 'center'}}
             onPress={() => {
-              navigation.navigate('Categorydetails');
+              navigation.navigate('Teamfuria');
             }}>
-            <Image source={require('../assets/Logo/sentinels.png')} />
+            <Image source={require('../assets/Logo/furia.png')} />
             <Text
               style={{
                 fontSize: 15,
@@ -188,9 +188,41 @@ const Tournamentdetails = ({navigation}) => {
                 fontFamily: 'kanit',
                 color: '#fff',
               }}>
-              Sentinels
+              Furia
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={{alignItems: 'center'}}
+            onPress={() => {
+              navigation.navigate('Teamliquid');
+            }}>
+            <Image source={require('../assets/Logo/liquid.png')} />
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: '400',
+                fontFamily: 'kanit',
+                color: '#fff',
+              }}>
+              Team Liquid
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{alignItems: 'center'}}
+            onPress={() => {
+              navigation.navigate('Teamvs');
+            }}>
+            <Image source={require('../assets/Logo/vs.png')} />
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: '400',
+                fontFamily: 'kanit',
+                color: '#fff',
+              }}>
+              Vision Stiker
+            </Text>
+          </TouchableOpacity>                    
         </View>
       </View>
       {/* Group Stage */}
@@ -225,11 +257,11 @@ const Tournamentdetails = ({navigation}) => {
               fontFamily: 'kanit',
             }}
             data={[
-              ['Sentinels', '6', '0', '0'],
-              ['Team Liquid', '5', '1', '0'],
-              ['Vision Stiker', '3', '1', '1'],
-              ['FullSense', '2', '3', '2'],
-              ['Furia', '1', '4', '1'],
+              ['Sentinels', '0', '0', '0'],
+              ['Team Liquid', '0', '0', '0'],
+              ['Vision Stiker', '0', '0', '0'],
+              ['FullSense', '0', '0', '0'],
+              ['Furia', '0', '0', '0'],
             ]}
           />
         </Table>

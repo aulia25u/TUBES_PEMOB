@@ -8,8 +8,6 @@ const array = [0, 1, 2, 3, 4, 5]
 const data = [
   {
     date: '3 Desember 2021', time: '11.00 PM', team1: 'Sentinels', team2: 'KRU', category: 'BEST OF 3'
-  }, {
-    date: '4 Desember 2021', time: '12.00 PM', team1: 'Fullsense', team2: 'Sentinels', category: 'BEST OF 5'
   }
 ]
 const Schedule = ({ navigation }) => {

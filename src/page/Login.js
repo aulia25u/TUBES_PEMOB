@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getData, storeData} from '../utils/localstorage';
 import {TextInput, Checkbox} from 'react-native-paper';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
@@ -7,7 +8,36 @@ const Login = ({navigation}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [checked, setChecked] = React.useState(false);
-  //
+
+  const handleLogin = () => {
+    fetch('http://20.205.61.111/api/login', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(json => json.json())
+      .then(res => {
+        if (res.status) {
+          storeData('token', {value: res.Token}).finally(() => {
+              navigation.reset({
+              index: 0,
+              routes: [{name: 'Tab'}],
+            });
+          });          
+        } else {
+          alert('Silahkan Coba Kembali, Periksa Email dan Password Anda');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <View style={{flex: 1, backgroundColor: '#ffffff'}}>
       <Image
@@ -38,7 +68,7 @@ const Login = ({navigation}) => {
       <View>
         <View style={{paddingHorizontal: 40}}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Tab')}
+            onPress={() => handleLogin()}
             style={{
               backgroundColor: '#BC8CF2',
               paddingVertical: 13,
@@ -62,37 +92,18 @@ const Login = ({navigation}) => {
             justifyContent: 'space-between',
             paddingHorizontal: 45,
             alignItems: 'center',
-          }}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Checkbox
-              color="#BC8CF2"
-              uncheckedColor="#BC8CF2"
-              status={checked ? 'checked' : 'unchecked'}
-              onPress={() => {
-                setChecked(!checked);
-              }}
-            />
+            justifyContent:'center',
+          }}>          
+          <TouchableOpacity style={{marginTop:20}} onPress={()=>{navigation.navigate('Register')}}>
             <Text
               style={{
                 color: '#000000',
                 opacity: 0.5,
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: '400',
                 fontFamily: 'kanit',
               }}>
-              Remember Me
-            </Text>
-          </View>
-          <TouchableOpacity>
-            <Text
-              style={{
-                color: '#000000',
-                opacity: 0.5,
-                fontSize: 15,
-                fontWeight: '400',
-                fontFamily: 'kanit',
-              }}>
-              Forget Password?
+              Register
             </Text>
           </TouchableOpacity>
         </View>

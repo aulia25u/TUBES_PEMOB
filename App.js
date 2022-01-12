@@ -21,6 +21,10 @@ import Profileupdate from './src/page/Profileupdate';
 import Profilepassword from './src/page/Profilepassword';
 import Categoryvalorant from './src/page/Categoryvalorant';
 import Categorydetails from './src/page/Categorydetails';
+import Teamfullsense from './src/page/Teamfullsense';
+import Teamfuria from './src/page/Teamfuria';
+import Teamliquid from './src/page/Teamliquid';
+import Teamvs from './src/page/Teamvs';
 import Tournamentdetails from './src/page/Tournamentdetails';
 import Detailsmatch from './src/page/Detailsmatch';
 import Exploredetails from './src/page/Exploredetails';
@@ -264,6 +268,54 @@ export default function App() {
         <Stack.Screen
           name="Categorydetails"
           component={Categorydetails}
+          options={{
+            headerTitle: 'Teams Details',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Teamfuria"
+          component={Teamfuria}
+          options={{
+            headerTitle: 'Teams Details',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Teamfullsense"
+          component={Teamfullsense}
+          options={{
+            headerTitle: 'Teams Details',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Teamliquid"
+          component={Teamliquid}
+          options={{
+            headerTitle: 'Teams Details',
+            headerTintColor: '#fff',
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#AD62FB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Teamvs"
+          component={Teamvs}
           options={{
             headerTitle: 'Teams Details',
             headerTintColor: '#fff',

@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getData} from '../utils/localstorage';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
 const Splash = ({navigation}) => {
+  useEffect(() => {
+    getData('token').then(res => {
+      console.log(res);
+      if (res !== null) {
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Tab'}],
+        });
+      }
+    });
+  }, []);
   return (
     <View style={{flex: 1, backgroundColor: '#AD62FB'}}>
       <Text

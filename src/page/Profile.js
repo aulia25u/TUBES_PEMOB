@@ -1,7 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {getData,removeData} from '../utils/localstorage';
 
 const Profile = ({navigation}) => {
+
+  const [profile,setProfile] = useState({name:''});
+
+  useEffect(() => {
+    getData('token').then(token => {
+      fetch('http://20.205.61.111/api/profile', {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token.value,
+        },        
+      })
+        .then(json => json.json())
+        .then(res => {
+          setProfile(
+            res.data
+          )
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  }, []);
+
+  const handleLogout = () => {    
+    getData('token').then(token => {
+      fetch('http://20.205.61.111/api/logout', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token.value,
+        },        
+      })
+        .then(json => json.json())
+        .then(res => {
+          if (res.status) {
+              removeData('token').then(()=>{
+                  navigation.reset({
+                  index: 0,
+                  routes: [{name: 'Splash'}],
+                });
+              })              
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  };
+
   return (
     <View style={{flex: 1, backgroundColor: '#AD62FB'}}>
       <View
@@ -42,7 +93,7 @@ const Profile = ({navigation}) => {
             color: '#EFE0FE',
             marginBottom: 20,
           }}>
-          Supratman
+          {profile.name}
         </Text>
       </View>
       <View style={{marginHorizontal: 35, marginTop: 30}}>
@@ -78,7 +129,7 @@ const Profile = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={{flexDirection: 'row'}}
-          onPress={() => navigation.navigate('Splash')}>
+          onPress={() => handleLogout()}>
           <Image source={require('../assets/Icons/logoutuser.png')} />
           <Text
             style={{

@@ -67,30 +67,7 @@ const Category = ({ navigation }) => {
                       </Text>
                     </View>
                   </TouchableOpacity>
-                </Col>
-                <Col sm={3} md={3} lg={3} xs={3}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate('Categoryvalorant');
-                    }}>
-                    <View style={{ margin: 10, alignItems: 'center' }}>
-                      <Image
-                        style={{ width: 50, height: 50 }}
-                        resizeMode="contain"
-                        source={require('../assets/Game/CSGO.png')}
-                      />
-                      <Text
-                        style={{
-                          fontSize: 15,
-                          fontWeight: '400',
-                          fontFamily: 'kanit',
-                          color: '#000000',
-                        }}>
-                        CSGO
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </Col>
+                </Col>                
               </Row>
             </View>
           </List.Accordion>

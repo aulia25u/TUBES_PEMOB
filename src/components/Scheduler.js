@@ -9,6 +9,7 @@ const Scheduler = props => {
         marginHorizontal: 25,
         borderRadius: 5,
         paddingHorizontal: 5,
+        paddingVertical:10,
       }}>
       <Text style={{color: '#AD62FB', marginLeft: 2}}>{props.date}</Text>
       <View style={{flexDirection: 'row'}}>

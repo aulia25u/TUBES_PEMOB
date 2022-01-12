@@ -3,10 +3,43 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-paper';
 
 const Register = ({navigation}) => {
+  const [nama, setNama] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [number, setNumber] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirm, setConfirm] = React.useState('');
+
+  const handleRegister = () => {
+    if (password === confirm) {
+      fetch('http://20.205.61.111/api/register', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: nama,
+          email: email,
+          password: password,
+          phone_number: number,
+        }),
+      })
+        .then(json => json.json())
+        .then(res => {
+          if (res.status) {
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Login'}],
+            });
+          } else {
+            alert('login gagal');
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <View style={{flex: 1, paddingTop: 30, backgroundColor: '#ffffff'}}>
       <Text
@@ -20,6 +53,14 @@ const Register = ({navigation}) => {
         Create a eSport Acount
       </Text>
       <View style={{marginTop: 30, paddingHorizontal: 37}}>
+        <TextInput
+          style={{backgroundColor: '#ffffff', marginVertical: 5}}
+          mode="outlined"
+          outlineColor="#AD62FB"
+          label="Nama Lengkap"
+          value={nama}
+          onChangeText={nama => setNama(nama)}
+        />
         <TextInput
           style={{backgroundColor: '#ffffff', marginVertical: 5}}
           mode="outlined"
@@ -53,9 +94,9 @@ const Register = ({navigation}) => {
           onChangeText={confirm => setConfirm(confirm)}
         />
       </View>
-      <View style={{paddingHorizontal: 40, marginTop: 150}}>
+      <View style={{paddingHorizontal: 40, marginTop: 100}}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Tab')}
+          onPress={() => handleRegister()}
           style={{
             backgroundColor: '#BC8CF2',
             paddingVertical: 13,
