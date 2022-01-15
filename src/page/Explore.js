@@ -10,6 +10,8 @@ import {
 import {Searchbar, List} from 'react-native-paper';
 import Explorer from '../components/Explorer';
 import {Row, Col} from 'react-native-responsive-grid-system';
+import Category from '../components/Category';
+
 const Explore = ({navigation}) => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const onChangeSearch = query => setSearchQuery(query);
@@ -18,15 +20,18 @@ const Explore = ({navigation}) => {
       <View>
         <Searchbar
           style={{
-            backgroundColor: '#AD62FB',
-            borderBottomWidth: 1,
-            borderColor: '#ffffff',
+            backgroundColor: 'transparent',
+            shadowColor: 'transparent'
           }}
-          iconColor="#ffffff"
+          iconColor="#DEC0FE"
           placeholder="Search"
+          placeholderTextColor={'#DEC0FE'}
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
+      </View>
+      <View>
+        <Category />
       </View>
       <View style={{width: '100%'}}>
         <Image

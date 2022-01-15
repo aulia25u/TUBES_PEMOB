@@ -14,16 +14,16 @@ const Category = ({ navigation }) => {
     <View style={{ flex: 1, backgroundColor: '#AD62FB' }}>
       <View>
         <Searchbar
-          style={{
-            backgroundColor: '#AD62FB',
-            borderBottomWidth: 1,
-            borderColor: '#ffffff',
-          }}
-          iconColor="#ffffff"
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
+            style={{
+              backgroundColor: 'transparent',
+              shadowColor: 'transparent'
+            }}
+            iconColor="#DEC0FE"
+            placeholder="Search"
+            placeholderTextColor={'#DEC0FE'}
+            onChangeText={onChangeSearch}
+            value={searchQuery}
+          />
       </View>
       <Text
         style={{
@@ -32,7 +32,7 @@ const Category = ({ navigation }) => {
           fontWeight: '700',
           marginTop: 30,
           marginHorizontal: 25,
-          color: '#ffffff',
+          color: '#DEC0FE',
         }}>
         Game Category & Team Information
       </Text>
