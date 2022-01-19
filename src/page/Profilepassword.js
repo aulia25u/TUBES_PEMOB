@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-paper';
-import { removeData, getData } from '../utils/localstorage';
+import {HOST} from '../config';
+import {removeData, getData} from '../utils/localstorage';
 
 const Profilepassword = ({navigation}) => {
   const [oldpass, setOldpass] = React.useState('');
@@ -10,11 +11,11 @@ const Profilepassword = ({navigation}) => {
 
   const handlePassword = () => {
     getData('token').then(token => {
-      fetch('http://20.205.61.111/api/profile/change-password', {
+      fetch(`${HOST}profile/change-password`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token.value,
+          Authorization: token.value,
         },
         body: JSON.stringify({
           old_password: oldpass,
@@ -25,18 +26,22 @@ const Profilepassword = ({navigation}) => {
         .then(json => json.json())
         .then(res => {
           if (res.status) {
-            removeData('token').finally(()=>{
-              navigation.reset({
-                index: 0,
-                routes: [{name:'Splash'}]
+            removeData('token')
+              .finally(() => {
+                navigation.reset({
+                  index: 0,
+                  routes: [{name: 'Splash'}],
+                });
               })
-            })              
-          }           
+              .catch(err => {
+                console.log(err);
+              });
+          }
         })
         .catch(err => {
           console.log(err);
         });
-      })
+    });
   };
 
   return (
@@ -49,6 +54,7 @@ const Profilepassword = ({navigation}) => {
           outlineColor="#ffffff"
           label="Old Password"
           value={oldpass}
+          secureTextEntry
           onChangeText={oldpass => setOldpass(oldpass)}
         />
         <TextInput
@@ -58,6 +64,7 @@ const Profilepassword = ({navigation}) => {
           outlineColor="#ffffff"
           label="New Password"
           value={newpass}
+          secureTextEntry
           onChangeText={newpass => setNewpass(newpass)}
         />
         <TextInput
@@ -67,6 +74,7 @@ const Profilepassword = ({navigation}) => {
           outlineColor="#ffffff"
           label="Confirm New Password"
           value={confirmpass}
+          secureTextEntry
           onChangeText={confirmpass => setConfirmpass(confirmpass)}
         />
       </View>

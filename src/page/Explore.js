@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,17 +11,41 @@ import {Searchbar, List} from 'react-native-paper';
 import Explorer from '../components/Explorer';
 import {Row, Col} from 'react-native-responsive-grid-system';
 import Category from '../components/Category';
+import {HOST, STORAGE} from '../config/';
+import {getData} from '../utils/localstorage';
 
 const Explore = ({navigation}) => {
+  const [data, setData] = useState([]);
+  const [filter, setFilter] = useState();
   const [searchQuery, setSearchQuery] = React.useState('');
   const onChangeSearch = query => setSearchQuery(query);
+
+  useEffect(() => {
+    getData('token').then(token => {
+      fetch(`${HOST}news`, {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token.value,
+        },
+      })
+        .then(json => json.json())
+        .then(res => {
+          setData(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  }, []);
+
   return (
     <ScrollView style={{backgroundColor: '#AD62FB'}}>
       <View>
         <Searchbar
           style={{
             backgroundColor: 'transparent',
-            shadowColor: 'transparent'
+            shadowColor: 'transparent',
           }}
           iconColor="#DEC0FE"
           placeholder="Search"
@@ -30,9 +54,7 @@ const Explore = ({navigation}) => {
           value={searchQuery}
         />
       </View>
-      <View>
-        <Category />
-      </View>
+      <View>{/* <Category setFilter={setFilter} /> */}</View>
       <View style={{width: '100%'}}>
         <Image
           style={{width: '100%', resizeMode: 'cover'}}
@@ -60,54 +82,26 @@ const Explore = ({navigation}) => {
         </View>
       </View>
       <Row>
-        <Col sm={6} md={6} lg={6} xs={6}>
-          <View style={{padding: 10}}>
-            <Explorer
-              onPress={() => {
-                navigation.navigate('Exploredetails');
-              }}
-              date="November, 26 2021"
-              title="DIE FOR YOU - CHAMPIONS MUSIC VIDEO"
-              image={require('../assets/Image/news1.png')}
-            />
-          </View>
-        </Col>
-        <Col sm={6} md={6} lg={6} xs={6}>
-          <View style={{padding: 10}}>
-            <Explorer
-              onPress={() => {
-                navigation.navigate('Exploredetails');
-              }}
-              date="November, 26 2021"
-              title="NA LAST CHANCE QUALIFIER -- STARTS OCTOBER 12"
-              image={require('../assets/Image/news2.png')}
-            />
-          </View>
-        </Col>
-        <Col sm={6} md={6} lg={6} xs={6}>
-          <View style={{padding: 10}}>
-            <Explorer
-              onPress={() => {
-                navigation.navigate('Exploredetails');
-              }}
-              date="November, 26 2021"
-              title="VALORANT CHAMPIONS: EVERYTHING YOU  - "
-              image={require('../assets/Image/news3.png')}
-            />
-          </View>
-        </Col>
-        <Col sm={6} md={6} lg={6} xs={6}>
-          <View style={{padding: 10}}>
-            <Explorer
-              onPress={() => {
-                navigation.navigate('Exploredetails');
-              }}
-              date="November, 26 2021"
-              title="DIE FOR YOU - CHAMPIONS MUSIC VIDEO"
-              image={require('../assets/Image/news1.png')}
-            />
-          </View>
-        </Col>
+        {data.map((el, idx) => {
+          return (
+            <Col sm={6} md={6} lg={6} xs={6} key={idx}>
+              <View style={{padding: 10}}>
+                <Explorer
+                  onPress={() => {
+                    navigation.navigate('Exploredetails', {
+                      title: el.title,
+                      body: el.body,
+                      image: el.image_path,
+                    });
+                  }}
+                  date="November, 26 2021"
+                  title={el.title}
+                  image={require('../assets/Image/high.png')}
+                />
+              </View>
+            </Col>
+          );
+        })}
       </Row>
     </ScrollView>
   );

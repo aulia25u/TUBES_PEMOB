@@ -124,7 +124,7 @@ const Tournamentdetails = ({navigation}) => {
       </View>
       {/* Teams Participants */}
       <View
-        style={{backgroundColor: '#231432', marginTop: 20, paddingBottom: 10}}>
+        style={{backgroundColor: '#231432', marginTop: 20, paddingBottom: 30}}>
         <Text
           style={{
             marginTop: 16,
@@ -139,10 +139,9 @@ const Tournamentdetails = ({navigation}) => {
         </Text>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginHorizontal: 50,
+            marginHorizontal: 50,                        
           }}>
+          <View style={{flexDirection:'row',justifyContent:'space-between', marginBottom: 10}}>
           <TouchableOpacity
             style={{alignItems: 'center'}}
             onPress={() => {
@@ -191,6 +190,8 @@ const Tournamentdetails = ({navigation}) => {
               Furia
             </Text>
           </TouchableOpacity>
+          </View>
+          <View style={{flexDirection:'row', justifyContent:'space-around'}}>
           <TouchableOpacity
             style={{alignItems: 'center'}}
             onPress={() => {
@@ -222,7 +223,8 @@ const Tournamentdetails = ({navigation}) => {
               }}>
               Vision Stiker
             </Text>
-          </TouchableOpacity>                    
+          </TouchableOpacity>
+          </View>         
         </View>
       </View>
       {/* Group Stage */}
@@ -267,9 +269,8 @@ const Tournamentdetails = ({navigation}) => {
         </Table>
       </View>
       {/* Playoffs */}
-      <View
-        style={{backgroundColor: '#231432', marginTop: 20, paddingBottom: 10}}>
-        <Text
+      <View>
+        {/* <Text
           style={{
             marginTop: 10,
             marginLeft: 25,
@@ -280,8 +281,10 @@ const Tournamentdetails = ({navigation}) => {
             color: '#fff',
           }}>
           Playoffs
-        </Text>
-        <View></View>
+        </Text> */}
+        <Image resizeMode='contain' 
+          style={{height: 400, width: 400}} 
+          source={require('../assets/Image/bagan.png')} />
       </View>
     </ScrollView>
   );

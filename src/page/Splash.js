@@ -7,7 +7,7 @@ const Splash = ({navigation}) => {
     getData('token').then(res => {
       console.log(res);
       if (res !== null) {
-        navigation.reset({
+          navigation.reset({
           index: 0,
           routes: [{name: 'Tab'}],
         });

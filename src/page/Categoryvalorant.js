@@ -84,6 +84,60 @@ const Categoryvalorant = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
           </Col>
+          <Col sm={4} md={4} lg={4} xs={4}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Categorydetails');
+              }}
+              style={{ alignSelf: 'center', alignItems: 'center', marginTop:20 }}>
+              <Image source={require('../assets/Logo/liquid.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '400',
+                  fontFamily: 'kanit',
+                  color: '#000000',
+                }}>
+                Team Liquid
+              </Text>
+            </TouchableOpacity>
+          </Col>
+          <Col sm={4} md={4} lg={4} xs={4}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Categorydetails');
+              }}
+              style={{ alignSelf: 'center', alignItems: 'center', marginTop:20 }}>
+              <Image source={require('../assets/Logo/furia.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '400',
+                  fontFamily: 'kanit',
+                  color: '#000000',
+                }}>
+                Furia
+              </Text>
+            </TouchableOpacity>
+          </Col>
+          <Col sm={4} md={4} lg={4} xs={4}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Categorydetails');
+              }}
+              style={{ alignSelf: 'center', alignItems: 'center', marginTop:20}}>
+              <Image source={require('../assets/Logo/vs.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '400',
+                  fontFamily: 'kanit',
+                  color: '#000000',
+                }}>
+                Vision Striker
+              </Text>
+            </TouchableOpacity>
+          </Col>
         </Row>
       </View>
     </View>

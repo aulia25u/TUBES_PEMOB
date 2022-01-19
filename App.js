@@ -220,10 +220,7 @@ export default function App() {
           name="Register"
           component={Register}
           options={{
-            headerShown: true,
-            headerRight: () => {
-              return <LoginButton />;
-            },
+            headerShown: true,            
             headerStyle: {
               backgroundColor: '#ffffff',
             },

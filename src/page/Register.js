@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-paper';
+import {HOST} from '../config/';
 
 const Register = ({navigation}) => {
   const [nama, setNama] = React.useState('');
@@ -11,7 +12,7 @@ const Register = ({navigation}) => {
 
   const handleRegister = () => {
     if (password === confirm) {
-      fetch('http://20.205.61.111/api/register', {
+      fetch(`${HOST}register`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -81,6 +82,7 @@ const Register = ({navigation}) => {
           style={{backgroundColor: '#ffffff', marginVertical: 5}}
           mode="outlined"
           outlineColor="#AD62FB"
+          secureTextEntry
           label="Password"
           value={password}
           onChangeText={password => setPassword(password)}
@@ -89,6 +91,7 @@ const Register = ({navigation}) => {
           style={{backgroundColor: '#ffffff', marginVertical: 5}}
           mode="outlined"
           outlineColor="#AD62FB"
+          secureTextEntry
           label="Confirm Password"
           value={confirm}
           onChangeText={confirm => setConfirm(confirm)}

@@ -2,15 +2,15 @@ import React, {useEffect} from 'react';
 import {getData, storeData} from '../utils/localstorage';
 import {TextInput, Checkbox} from 'react-native-paper';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {HOST} from '../config';
 
 const Login = ({navigation}) => {
   //state
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [checked, setChecked] = React.useState(false);
 
   const handleLogin = () => {
-    fetch('http://20.205.61.111/api/login', {
+    fetch(`${HOST}login`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -24,11 +24,11 @@ const Login = ({navigation}) => {
       .then(res => {
         if (res.status) {
           storeData('token', {value: res.Token}).finally(() => {
-              navigation.reset({
+            navigation.reset({
               index: 0,
               routes: [{name: 'Tab'}],
             });
-          });          
+          });
         } else {
           alert('Silahkan Coba Kembali, Periksa Email dan Password Anda');
         }
@@ -92,9 +92,13 @@ const Login = ({navigation}) => {
             justifyContent: 'space-between',
             paddingHorizontal: 45,
             alignItems: 'center',
-            justifyContent:'center',
-          }}>          
-          <TouchableOpacity style={{marginTop:20}} onPress={()=>{navigation.navigate('Register')}}>
+            justifyContent: 'center',
+          }}>
+          <TouchableOpacity
+            style={{marginTop: 20}}
+            onPress={() => {
+              navigation.navigate('Register');
+            }}>
             <Text
               style={{
                 color: '#000000',

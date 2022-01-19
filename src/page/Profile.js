@@ -1,25 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import {getData,removeData} from '../utils/localstorage';
+import {getData, removeData} from '../utils/localstorage';
+import {HOST} from '../config';
 
 const Profile = ({navigation}) => {
-
-  const [profile,setProfile] = useState({name:''});
+  const [profile, setProfile] = useState({name: ''});
 
   useEffect(() => {
     getData('token').then(token => {
-      fetch('http://20.205.61.111/api/profile', {
+      fetch(`${HOST}profile`, {
         method: 'get',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token.value,
-        },        
+          Authorization: token.value,
+        },
       })
         .then(json => json.json())
         .then(res => {
-          setProfile(
-            res.data
-          )
+          setProfile(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -27,24 +25,26 @@ const Profile = ({navigation}) => {
     });
   }, []);
 
-  const handleLogout = () => {    
+  const handleLogout = () => {
     getData('token').then(token => {
-      fetch('http://20.205.61.111/api/logout', {
+      fetch(`${HOST}logout`, {
         method: 'delete',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token.value,
-        },        
+          Authorization: token.value,
+        },
       })
         .then(json => json.json())
         .then(res => {
           if (res.status) {
-              removeData('token').then(()=>{
-                  navigation.reset({
+            removeData('token')
+              .then(() => {
+                navigation.reset({
                   index: 0,
                   routes: [{name: 'Splash'}],
                 });
-              })              
+              })
+              .catch(err => console.log(err));
           }
         })
         .catch(err => {
